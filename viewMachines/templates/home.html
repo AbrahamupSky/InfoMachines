@@ -1,0 +1,11 @@
+<h1>Home</h1>
+
+{% for machine in machines %}
+
+<h2>{{ machine.brand }}</h2>
+<p>{{ machine.department }}</p>
+<p>{{ machine.area }}</p>
+<p>{{ machine.responsible }}</p>
+<p>{{ machine.date }}</p>
+
+{% endfor %}
