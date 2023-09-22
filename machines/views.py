@@ -1,3 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
+from .models import Machines
 
-# Create your views here.
+def render_machines(request):
+  posts = Machines.objects.all()
+  return render(request, 'machines.html', {'posts': posts})
+
+def machine_detail(request, machines_id):
+  post = Machines.objects.get(Machines, id=machines_id)
+  return render(request, 'machine_detail.html', {'post': machines_id})
