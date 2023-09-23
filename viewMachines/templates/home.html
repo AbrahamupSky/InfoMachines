@@ -1,11 +1,27 @@
-<h1>Home</h1>
+{% extends 'layout.html' %}
+{% block content %}
+
+<div class="text-center">
+  <h1>Nuestras maquinas</h1>
+</div>
 
 {% for machine in machines %}
 
-<h2>{{ machine.brand }}</h2>
-<p>{{ machine.department }}</p>
-<p>{{ machine.area }}</p>
-<p>{{ machine.responsible }}</p>
-<p>{{ machine.date }}</p>
+<div class="d-flex flex-column bd-highlight mb-3 p-2">
+  <div class="card p-2 bd-highlight shadow-sm bg-body rounded">
+    <img src="{{ machine.photo.url }}" alt="{{ machine.photo }}" class="card-img-top">
+    <div class="card-body">
+      <h5 class="card-title">Machine</h5>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">{{ machine.brand }}</li>
+        <li class="list-group-item">{{ machine.department }}</li>
+        <li class="list-group-item">{{ machine.area }}</li>
+        <li class="list-group-item">{{ machine.responsible }}</li>
+        <date class="list-group-item">{{ machine.date }}<date/>
+      </ul>
+    </div>
+  </div>
+</div>
 
 {% endfor %}
+{% endblock %}

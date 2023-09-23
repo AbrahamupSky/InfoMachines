@@ -1,3 +1,26 @@
-<h1>Machine</h1>
+{% extends 'layout.html' %}
 
-{{post}}
+{% block content %}
+
+<div class="d-flex flex-column bd-highlight mb-3">
+  <div class="card p-2 bd-highlight">
+    <img src="{{ post.photo.url }}" alt="{{ post.photo }}" class="card-img-top">
+    <div class="card-body">
+      <h5 class="card-title">{{ post.name }}</h5>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">{{ post.code }}</li>
+        <li class="list-group-item">{{ post.brand }}</li>
+        <li class="list-group-item">{{ post.model }}</li>
+        <li class="list-group-item">{{ post.noSerie }}</li>
+        <li class="list-group-item">{{ post.equip }}</li>
+        <li class="list-group-item">{{ post.department }}</li>
+        <li class="list-group-item">{{ post.area }}</li>
+        <li class="list-group-item">{{ post.responsible }}</li>
+        <li class="list-group-item">{{ post.date }}</li>
+      </ul>
+      <li class="list-group-item">{{ post.comments }}</li>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

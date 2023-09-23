@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models.fields.files import ImageField
 
 class Machines(models.Model):
   DEPARTMENT = (
@@ -19,6 +20,7 @@ class Machines(models.Model):
     ('Talleres', 'Talleres'),
   )
 
+  name = models.CharField(max_length=100, null=True, blank=True)
   code = models.CharField(max_length=50)
   brand = models.CharField(max_length=100)
   model = models.CharField(max_length=100)
@@ -28,5 +30,6 @@ class Machines(models.Model):
   area = models.CharField(max_length=100, blank = True, choices=AREA)
   responsible = models.CharField(max_length=150, blank = True)
   comments = models.TextField(blank = True)
+  photo = ImageField(upload_to="machines/", null=True, blank=True)
 
   manual = models.FileField(upload_to="manuals/")

@@ -6,5 +6,5 @@ def render_machines(request):
   return render(request, 'machines.html', {'posts': posts})
 
 def machine_detail(request, machines_id):
-  post = Machines.objects.get(Machines, id=machines_id)
-  return render(request, 'machine_detail.html', {'post': machines_id})
+  post = get_object_or_404(Machines, id=machines_id)
+  return render(request, 'machine_detail.html', {'post': post})

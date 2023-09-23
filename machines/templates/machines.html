@@ -1,15 +1,24 @@
+{% extends 'layout.html' %}
+{% block content %}
 
 {% for post in posts %}
-  <h1>Machines</h1>
 
-  <p>{{ post.code }}</p>
-  <p>{{ post.brand }}</p>
-  <p>{{ post.model }}</p>
-  <p>{{ post.noSerie }}</p>
-  <p>{{ post.equip }}</p>
-  <p>{{ post.department }}</p>
-  <p>{{ post.area }}</p>
-  <p>{{ post.responsible }}</p>
-  <p>{{ post.comments }}</p>
+<div class="d-flex flex-column bd-highlight mb-3 p-2">
+  <div class="card bd-highlight shadow-sm bg-body rounded">
+    <img src="{{ post.photo.url }}" alt="{{ post.photo }}" class="card-img-top" >
+    <div class="card-body">
+      <h5 class="card-title">{{ post.name }}</h5>
+      <p class="card-text">{{ post.code }}</p>
+      <p class="card-text">{{ post.brand }}</p>
+      <p class="card-text">{{ post.model }}</p>
+      <p class="card-text">{{ post.department }}</p>
+      
+      <div class="d-flex flex-column bd-highlight">
+        <a href="{% url 'machines:post_detail' post.id %}" class="btn btn-primary">Más Información</a>
+      </div>
+    </div>
+  </div>
+</div>
 
 {% endfor %}
+{% endblock %}
