@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import render_machines, machine_detail
+from .views import render_machines, machine_detail, qr
 
 app_name = 'machines'
 

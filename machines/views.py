@@ -8,3 +8,6 @@ def render_machines(request):
 def machine_detail(request, machines_id):
   post = get_object_or_404(Machines, id=machines_id)
   return render(request, 'machine_detail.html', {'post': post})
+
+def qr(request):
+  return render(request, 'qr.html')
