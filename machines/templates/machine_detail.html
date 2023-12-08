@@ -2,25 +2,29 @@
 
 {% block content %}
 
-<div class="d-flex flex-column bd-highlight mb-3">
-  <div class="card p-2 bd-highlight">
-    <img src="{{ post.photo.url }}" alt="{{ post.photo }}" class="card-img-top">
-    <div class="card-body">
-      <h5 class="card-title">{{ post.name }}</h5>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">{{ post.code }}</li>
-        <li class="list-group-item">{{ post.brand }}</li>
-        <li class="list-group-item">{{ post.model }}</li>
-        <li class="list-group-item">{{ post.noSerie }}</li>
-        <li class="list-group-item">{{ post.equip }}</li>
-        <li class="list-group-item">{{ post.department }}</li>
-        <li class="list-group-item">{{ post.area }}</li>
-        <li class="list-group-item">{{ post.responsible }}</li>
-        <li class="list-group-item">{{ post.date }}</li>
-      </ul>
-      <li class="list-group-item">{{ post.comments }}</li>
+<div class="p-2">
+  <a href="{% url 'machines:posts' %}" type="button" class="btn btn-outline-primary">Retroceder</a>
+</div>
+
+<div class="d-flex justify-content-center">
+  <div class="d-flex flex-column bd-highlight mb-3">
+    <div class="card p-2 bd-highlight">
+      <img src="{{ post.foto.url }}" alt="{{ post.foto }}" class="card-img-top">
+      <div class="card-body">
+        <h5 class="card-title">{{ post.nombre }}</h5>
+        <ul class="list-group list-group-flush">
+          <label>Codigo<li class="list-group-item mb-2">{{ post.codigo }}</li></label>
+          <label>Marca<li class="list-group-item mb-2">{{ post.marca }}</li></label>
+          <label>Modelo<li class="list-group-item mb-2">{{ post.modelo }}</li></label>
+          <label>Numero de Serie<li class="list-group-item mb-2">{{ post.noSerie }}</li></label>
+          <label>Equipo<li class="list-group-item mb-2">{{ post.equipo }}</li></label>
+          <label>Area<li class="list-group-item mb-2">{{ post.area }}</li></label>
+          <label>Responsable<li class="list-group-item mb-2">{{ post.responsable }}</li></label>
+          <label>Comentarios<li class="list-group-item mb-2">{{ post.comentarios }}</li></label>
+        </ul>
+      </div>
+      <a href="{{ post.manual.url }}" class="btn btn-outline-success">Download Manual</a>
     </div>
-    <a href="{{ post.manual.url }}" class="btn btn-primary">Download Manual</a>
   </div>
 </div>
 

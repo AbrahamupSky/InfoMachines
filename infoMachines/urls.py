@@ -7,6 +7,10 @@ from machines import urls
 from viewMachines import views
 
 urlpatterns = [
+  path('jet/', include('jet.urls', 'jet')),
+  path('jet/dashboard/', include('jet.dashboard.urls', 'jet-dashboard')),
+
+
   path('machines/admin/', admin.site.urls),
   path('', views.home, name='home'),
   path('machines/', include(urls)),

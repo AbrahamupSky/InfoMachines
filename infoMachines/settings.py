@@ -13,13 +13,15 @@ SECRET_KEY = 'django-insecure-6v*^t!@*ct+1&0elal39*uil@!rb8_-v)mfc!2sbx&=%$==gjn
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
+LANGUAGE_CODE = 'es-ES'
 
 # Application definition
 
 INSTALLED_APPS = [
-  'jazzmin',
+  'jet.dashboard',
+  'jet',
   'django.contrib.admin',
   'django.contrib.auth',
   'django.contrib.contenttypes',
@@ -94,9 +96,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
-
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Mexico_City'
 
 USE_I18N = True
 
@@ -115,29 +115,35 @@ MEDIA_URL = '/media/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-JAZZMIN_SETTINGS = {
-  "site_header": "InfoMachines", 
-  "site_brand": "Admin panel",
-  "welcome_sign": "Bienvenido a InfoMachines",
-  "site_logo": "../media/Group561.png",
-  "order_with_respect_to": ["auth", "books"],
-
-  "navigation": [
-    {
-      "name": "Inicio",  # Nombre del elemento del menú
-      "icon": "fas fa-home",  # Icono de FontAwesome para el elemento del menú
-      "url": "/",  # URL a la que se redirige cuando se hace clic en el elemento del menú
-      "permissions": ["auth.view_user"],  # Permisos requeridos para ver este elemento del menú
-    },
-  ],
-
-  "topmenu_links": [
-    {"name": "Home",  "url": "/machines/"},
-    {"app": "books"},
-  ],
-
-  "usermenu_links": [
-    {"name": "Home", "url": "/machines/"},
-    {"model": "auth.user"}
-  ],
-}
+JET_THEMES = [
+  {
+  'theme': 'default', # theme folder name
+  'color': '#47bac1', # color of the theme's button in user menu
+  'title': 'Default' # theme title
+  },
+  {
+  'theme': 'green',
+  'color': '#44b78b',
+  'title': 'Green'
+  },
+  {
+  'theme': 'light-green',
+  'color': '#2faa60',
+  'title': 'Light Green'
+  },
+  {
+  'theme': 'light-violet',
+  'color': '#a464c4',
+  'title': 'Light Violet'
+  },
+  {
+  'theme': 'light-blue',
+  'color': '#5EADDE',
+  'title': 'Light Blue'
+  },
+  {
+  'theme': 'light-gray',
+  'color': '#222',
+  'title': 'Light Gray'
+  },
+]

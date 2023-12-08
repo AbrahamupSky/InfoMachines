@@ -1,27 +1,30 @@
 {% extends 'layout.html' %}
 {% block content %}
 <div class="text-center">
-  <h1>Nuestras maquinas</h1>
+  <h1>Nuestras máquinas</h1>
 </div>
 
-{% for post in posts %}
+<div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-3 p-3">
+  {% for post in posts %}
+    <div class="col">
+      <div class="card bd-highlight shadow-sm rounded box-img">
+        <img src="{{ post.foto.url }}" alt="{{ post.foto }}" class="card-img-top img-fluid" style="height: 250px;">
+        <div class="card-body">
+          <h5 class="card-title">{{ post.nombre }}</h5>
+          <ul class="list-group list-group-flush">
+            <label>Código<li class="list-group-item mb-2">{{ post.codigo }}</li></label>
+            <label>Marca<li class="list-group-item mb-2">{{ post.marca }}</li></label>
+            <label>Modelo<li class="list-group-item mb-2">{{ post.modelo }}</li></label>
+            <label>Area<li class="list-group-item mb-2">{{ post.area }}</li></label>
+          </ul>
 
-<div class="d-flex flex-column bd-highlight mb-3 p-2">
-  <div class="card bd-highlight shadow-sm bg-body rounded">
-    <img src="{{ post.photo.url }}" alt="{{ post.photo }}" class="card-img-top" >
-    <div class="card-body">
-      <h5 class="card-title">{{ post.name }}</h5>
-      <p class="card-text">{{ post.code }}</p>
-      <p class="card-text">{{ post.brand }}</p>
-      <p class="card-text">{{ post.model }}</p>
-      <p class="card-text">{{ post.department }}</p>
-      
-      <div class="d-flex flex-column bd-highlight">
-        <a href="{% url 'machines:post_detail' post.id %}" class="btn btn-primary">Más Información</a>
+          <div class="d-flex flex-column bd-highlight">
+            <a href="{% url 'machines:post_detail' post.id %}" class="btn btn-primary">Más Información</a>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
+  {% endfor %}
 </div>
 
-{% endfor %}
 {% endblock %}
