@@ -1,0 +1,56 @@
+{% extends 'layout.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+  <div class="container" style="width: 95%;">
+
+    <form method="POST" enctype="multipart/form-data" class="card p-3 mt-5 border-dark" autocomplete="off" novalidate>
+      <div class="card mb-3 border-dark bg-secondary text-white">
+        <h3 class="text-center mt-1">Registrar Máquina</h3>
+      </div>
+
+      {% csrf_token %}
+      <div class="row">
+        <div class="col-6">
+          {{ form.nombre|as_crispy_field }}
+        </div>
+        <div class="col-6">
+          {{ form.codigo|as_crispy_field }}
+        </div>
+        <div class="col-6">
+          {{ form.marca|as_crispy_field }}
+        </div>
+        <div class="col-6">
+          {{ form.modelo|as_crispy_field }}
+        </div>
+        <div class="col-6">
+          {{ form.noSerie|as_crispy_field }}
+        </div>
+        <div class="col-6">
+          {{ form.equipo|as_crispy_field }}
+        </div>
+        <div class="col-6">
+          {{ form.area|as_crispy_field }}
+        </div>
+        <div class="col-6">
+          {{ form.responsable|as_crispy_field }}
+        </div>
+        <div class="col-12">
+          {{ form.comentarios|as_crispy_field }}
+        </div>
+        <div class="col-6">
+          {{ form.foto|as_crispy_field }}
+        </div>
+        <div class="col-6">
+          {{ form.manual|as_crispy_field }}
+        </div>
+      </div>
+
+      <div class="flex d-flex flex-row">
+        <button type="submit" class="btn btn-outline-success flex-fill mt-3 p-2 me-2">Registrar</button>
+        <a href="{% url 'add_machine' %}" type="submit" class="btn btn-outline-secondary flex-fill mt-3 p-2 ms-2">Limpiar</a>
+      </div>  
+    </form>
+  </div>
+
+{% endblock content %}
