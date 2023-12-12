@@ -2,16 +2,12 @@
 
 {% block content %}
 
-<!-- <div class="p-2">
-  
-</div> -->
-
 <div class="container">
-  <div class="card p-3 border-dark">
+  <div class="card p-3 border-dark w-50">
     <div class="card mb-3 border-dark bg-secondary text-white">
       <h3 class="text-center mt-1">{{ post.nombre }}</h3>
     </div>
-    <img class="rounded mx-auto d-block w-50" src="{{ post.foto.url }}" alt="{{ post.foto }}">
+    <img class="rounded mx-auto d-block w-25" src="{{ post.foto.url }}" alt="{{ post.foto }}">
     
     <div class="row">
       <div class="col-6">
@@ -54,33 +50,9 @@
       <a href="{{ post.manual.url }}" class="btn btn-outline-success flex-fill mt-3 p-2 ms-2">Download Manual</a>
     </div>  
     {% else %}
-    <a href="{% url 'posts' %}" type="button" class="btn btn-outline-primary">Retroceder</a>
+    <a href="{% url 'posts' %}" type="button" class="btn btn-outline-primary"><i class="fa-solid fa-arrow-left me-3"></i>Retroceder</a>
     {% endif %}
   </div>
 </div>
-
-<!-- <div class="d-flex justify-content-center">
-  <div class="d-flex flex-column bd-highlight mb-3">
-    <div class="card p-2 bd-highlight">
-      <img src="{{ post.foto.url }}" alt="{{ post.foto }}" class="card-img-top">
-      <div class="card-body">
-        <h5 class="card-title">{{ post.nombre }}</h5>
-        <ul class="list-group list-group-flush">
-          <label>Codigo<li class="list-group-item mb-2">{{ post.codigo }}</li></label>
-          <label>Marca<li class="list-group-item mb-2">{{ post.marca }}</li></label>
-          <label>Modelo<li class="list-group-item mb-2">{{ post.modelo }}</li></label>
-          <label>Numero de Serie<li class="list-group-item mb-2">{{ post.noSerie }}</li></label>
-          <label>Equipo<li class="list-group-item mb-2">{{ post.equipo }}</li></label>
-          <label>Area<li class="list-group-item mb-2">{{ post.area }}</li></label>
-          <label>Responsable<li class="list-group-item mb-2">{{ post.responsable }}</li></label>
-          <label>Comentarios<li class="list-group-item mb-2">{{ post.comentarios }}</li></label>
-        </ul>
-      </div>
-      {% if user.is_authenticated %}
-      
-      {% endif %}
-    </div>
-  </div>
-</div> -->
 
 {% endblock %}
