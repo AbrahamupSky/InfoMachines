@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+
+  <div class="container">
+    <div class="card p-3 border-dark">
+      <div class="card mb-3 border-dark bg-secondary text-white">
+        <h3 class="text-center mt-1">Bitacora de {{ bitacora.maquina }}</h3>
+      </div>
+
+      <div class="row">
+        <div class="col-12">
+          <label>Acción</label>
+          <li class="list-group-item mb-2">{{ bitacora.accion }}</li>
+        </div>
+        <div class="col-12">
+          <label>Comentarios</label>
+          <li class="list-group-item mb-2">{{ bitacora.tiempo_accion }}</li>
+        </div>
+        <div class="col-12">
+          <label>Bitacora Fisica</label>
+        </div>
+        <img src="{{ bitacora.file.url }}" class="img-fluid mx-auto w-50 rounded mb-3" alt="{{ bitacora.file }}">
+        <hr class="hr">
+      </div>
+      <a href="{{ bitacora.file.url }}" download class="btn btn-outline-primary mb-2"><i class="fa-solid fa-download"></i></a>
+    </div>
+  </div>
+
+{% endblock content %}
+3331587761

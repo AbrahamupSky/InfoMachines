@@ -10,8 +10,8 @@ class MachinesAdmin(admin.ModelAdmin):
 admin.site.register(Machines, MachinesAdmin)
 
 class BitacoraAdmin(admin.ModelAdmin):
-  list_display = ['usuario', 'maquina', 'fecha', 'accion', 'tiempo_accion']
+  list_display = ['maquina', 'fecha', 'accion', 'tiempo_accion']
   list_filter =  ['fecha', 'maquina']
-  search_fields = ['usuario', 'maquina', 'fecha', 'accion', 'tiempo_accion']
+  search_fields = ['maquina', 'fecha', 'accion', 'tiempo_accion']
 
 admin.site.register(Bitacora, BitacoraAdmin)

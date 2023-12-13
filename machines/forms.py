@@ -1,5 +1,5 @@
 from django import forms
-from .models import Machines
+from .models import Machines, Bitacora
 
 class MachinesForm(forms.ModelForm):
   nombre = forms.CharField(
@@ -7,7 +7,8 @@ class MachinesForm(forms.ModelForm):
     required=True,
     widget=forms.TextInput(
       attrs={
-        'style': 'font-size: 13px;'
+        'style': 'font-size: 13px;',
+        'placeholder': 'Nombre de la maquina'
       }
     ),
   )
@@ -17,7 +18,8 @@ class MachinesForm(forms.ModelForm):
     required=True,
     widget=forms.TextInput(
       attrs={
-        'style': 'font-size: 13px;'
+        'style': 'font-size: 13px;',
+        'placeholder': 'Codigo de la maquina'
       }
     ),
   )
@@ -27,7 +29,8 @@ class MachinesForm(forms.ModelForm):
     required=True,
     widget=forms.TextInput(
       attrs={
-        'style': 'font-size: 13px;'
+        'style': 'font-size: 13px;',
+        'placeholder': 'Marca de la maquina'
       }
     ),
   )
@@ -37,7 +40,8 @@ class MachinesForm(forms.ModelForm):
     required=True,
     widget=forms.TextInput(
       attrs={
-        'style': 'font-size: 13px;'
+        'style': 'font-size: 13px;',
+        'placeholder': 'Modelo de la maquina'
       }
     ),
   )
@@ -47,7 +51,8 @@ class MachinesForm(forms.ModelForm):
     required=False,
     widget=forms.TextInput(
       attrs={
-        'style': 'font-size: 13px;'
+        'style': 'font-size: 13px;',
+        'placeholder': 'Numero de serie de la maquina'
       }
     ),
   )
@@ -57,7 +62,8 @@ class MachinesForm(forms.ModelForm):
     required=False,
     widget=forms.TextInput(
       attrs={
-        'style': 'font-size: 13px;'
+        'style': 'font-size: 13px;',
+        'placeholder': 'Equipo de la maquina'
       }
     ),
   )
@@ -78,7 +84,8 @@ class MachinesForm(forms.ModelForm):
     required=True,
     widget=forms.TextInput(
       attrs={
-        'style': 'font-size: 13px;'
+        'style': 'font-size: 13px;',
+        'placeholder': 'Responsable de la maquina'
       }
     ),
   )
@@ -89,6 +96,7 @@ class MachinesForm(forms.ModelForm):
     widget=forms.Textarea(
       attrs={
         'style': 'font-size: 13px;',
+        'placeholder': 'Comentarios de la maquina',
         'rows': 3
       }
     ),
@@ -123,3 +131,60 @@ class MachinesForm(forms.ModelForm):
   class Meta:
     model = Machines
     fields = '__all__'
+
+class BitacoraForm(forms.ModelForm):
+  maquina = forms.ModelChoiceField(
+    queryset=Machines.objects.all(),
+    label='Maquina',
+    widget=forms.Select(attrs={'style': 'font-size: 13px;'}),
+    required=True,
+  )
+
+  fecha = forms.DateField(
+    label='Fecha',
+    required=True,
+    widget=forms.DateInput(
+      attrs={
+        'type': 'date',
+        'style': 'font-size: 13px;'
+      }
+    ),
+  )
+
+  accion = forms.CharField(
+    label='Accion',
+    required=True,
+    widget=forms.TextInput(
+      attrs={
+        'style': 'font-size: 13px;',
+        'placeholder': 'Acciones realizadas en la maquina'
+      }
+    ),
+  )
+
+  tiempo_accion = forms.CharField(
+    label='Comentarios',
+    required=False,
+    widget=forms.Textarea(
+      attrs={
+        'style': 'font-size: 13px;',
+        'rows': 3,
+        'placeholder': 'Comentarios adicionales'
+      }
+    ),
+  )
+
+  file = forms.FileField(
+    label='Fotografia de la bitacora fisica',
+    required=True,
+    widget=forms.ClearableFileInput(
+      attrs={
+        'style': 'font-size: 13px;',
+        'accept': 'image/png, image/jpeg'
+      }
+    ),
+  )
+
+  class Meta:
+    model = Bitacora
+    fields = ['maquina', 'fecha', 'accion', 'tiempo_accion', 'file']

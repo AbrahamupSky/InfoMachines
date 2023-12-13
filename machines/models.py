@@ -43,11 +43,11 @@ class Machines(models.Model):
     return self.nombre
 
 class Bitacora(models.Model):
-  usuario = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
-  maquina = models.ForeignKey(Machines, to_field='nombre', on_delete=models.SET_NULL, null=True)
+  maquina = models.ForeignKey(Machines, on_delete=models.SET_NULL, null=True)
   fecha = models.DateTimeField(default=timezone.now)
   accion = models.CharField(max_length=100)
   tiempo_accion = models.TextField()
+  file = models.FileField(upload_to='bitacora/', null=True, blank=True)
 
   def __str__(self):
     return (f'{self.tiempo_accion} - {self.usuario} - {self.maquina} - {self.accion}')

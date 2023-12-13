@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="wrapper">
+  <input type="text" placeholder="Ingresa una URL" id="userInput">
+  <div class="d-grid mt-3 justify-content-center">
+    <select class="sizeOptions">
+      <option value="100" selected>100 x 100</option>
+      <option value="200" selected>200 x 200</option>
+      <option value="300" selected>300 x 300</option>
+    </select>
+
+    <input type="color" id="BGColor" class="color-inp" hidden>
+    <input type="color" id="FGColor" class="color-inp" hidden>
+  </div>
+
+  <div class="box">
+    <button id="submit" disabled>Generar</button>
+    <a href="#" id="download">Descargar</a>
+  </div>
+
+  <div class="container"></div>
+</div>
+
+{% endblock %}

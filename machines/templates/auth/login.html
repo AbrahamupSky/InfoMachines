@@ -1,4 +1,4 @@
-{% extends 'layout.html' %}
+{% extends 'base.html' %}
 {% load crispy_forms_tags %}
 {% block content %}
 
@@ -11,7 +11,7 @@
         <form method="POST">
           {% csrf_token %}
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" name="username" placeholder="name@example.com">
+            <input type="text" class="form-control" name="username" placeholder="name@example.com" autocomplete="off">
             <label for="floatingInput">Nombre de Usuario</label>
           </div>
           <div class="form-floating mb-3">
